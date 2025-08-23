@@ -49,23 +49,33 @@
         };
     };
 
+    macros {
+        selectCurrentWord: selectCurrentWord {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT)>, <&macro_tap>, <&kp LS(LC(RIGHT_ARROW))>;
+
+            label = "SELECTCURRENTWORD";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        layer0 {
+        Typing {
             bindings = <
-&kp ESC     &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9           &kp N0      &kp BACKSPACE
-&kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O            &kp P       &kp BSLH
-&kp CAPS    &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L            &kp SEMI    &kp APOS
-&kp LSHFT   &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT          &kp FSLH    &kp ENTER
-&kp C_MUTE  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2      &kp RIGHT_SHIFT  &kp DELETE
+&kp ESC    &kp N1          &kp N2          &kp N3            &kp N4       &kp N5            &kp UP_ARROW         &kp N6      &kp N7       &kp N8             &kp N9           &kp N0                  &kp BACKSPACE
+&kp TAB    &kp Q           &kp W           &kp E             &kp R        &kp T             &kp DOWN_ARROW       &kp Y       &kp U        &kp I              &kp O            &kp P                   &kp BSLH
+&kp CAPS   &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LCTRL F  &kp G             &kp LC(LEFT_ARROW)   &kp H       &mt RCTRL J  &mt RIGHT_SHIFT K  &mt RIGHT_ALT L  &mt RG(SEMI) SEMICOLON  &kp APOS
+&kp LSHFT  &kp Z           &kp X           &kp C             &kp V        &kp B             &kp LC(RIGHT_ARROW)  &kp N       &kp M        &kp COMMA          &kp DOT          &kp FSLH                &kp ENTER
+&mkp MB1   &kp LCTRL       &kp LEFT_GUI    &kp LEFT_ALT      &kp SPACE    &kp LEFT_SHIFT    &selectCurrentWord   &kp RETURN  &kp SPACE    &mo 1              &kp RIGHT_SHIFT  &kp DELETE
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT>;
             display-name = "LAYER0";
         };
 
-        layer_1 {
+        Nav {
             bindings = <
 &kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10           &trans
 &trans      &kp GRAVE        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME   &kp MINUS         &kp EQUAL

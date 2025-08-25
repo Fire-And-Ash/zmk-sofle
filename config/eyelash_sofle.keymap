@@ -30,7 +30,7 @@
 
 &mt { flavor = "balanced"; };
 
-/ {
+behaviors {
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -38,9 +38,7 @@
 
         tap-ms = <100>;
     };
-
-    behaviors {
-    };
+};
 
     combos {
         compatible = "zmk,combos";

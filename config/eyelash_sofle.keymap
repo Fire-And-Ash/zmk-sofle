@@ -30,6 +30,7 @@
 
 &mt { flavor = "balanced"; };
 
+/ {
 behaviors {
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
